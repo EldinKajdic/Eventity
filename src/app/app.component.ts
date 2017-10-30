@@ -4,7 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ScanPage } from '../pages/scan/scan';
+import { AboutPage } from '../pages/about/about';
+import { SocialPage } from '../pages/social/social';
+
+// MOST COMPONENTS INSPIRED FROM YANNBRAGA AT 'https://ioniccomponents.yannbraga.com/#/popup-fab'
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +18,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -22,7 +26,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Social', component: SocialPage },
+      { title: 'Tickets', component: ScanPage },
+      { title: 'About', component: AboutPage },
     ];
 
   }

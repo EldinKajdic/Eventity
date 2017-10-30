@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar transparent>
+    <ion-title>Purchase ticket</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen padding>
+  <div *ngIf="generatedCode" style="color: white; text-align: center;">
+    <h3>Your e-ticket</h3>
+    Dear {{qrData}},<br>Thank you for purchasing this ticket from Identity!
+    <p><b>Event:</b> {{eventName}}</p>
+    <p><b>Location: </b>{{eventLocation}}</p>
+    <p><b>Date:</b> {{eventDate}}</p>
+  </div>
+
+  <div *ngIf="generatedCode == null">
+    <button ion-button block icon-left (click)="scanCard()" color="dark" style="display: block; margin: 0 auto;"><ion-icon name="camera"></ion-icon> Scan card</button>
+    <ion-item>
+      <ion-label>Enter your name</ion-label>
+      <ion-input type="text" [(ngModel)]="qrData" aria-placeholder="hello"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Card Type</ion-label>
+      <ion-input type="text" [(ngModel)]="card.cardType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Card Number</ion-label>
+      <ion-input type="text" [(ngModel)]="card.cardNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Expiry Date</ion-label>
+      <ion-input type="text" [(ngModel)]="card.expiryMonth"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Expiry Year</ion-label>
+      <ion-input type="text" [(ngModel)]="card.expiryYear"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>CVV</ion-label>
+      <ion-input type="text" [(ngModel)]="card.cvv"></ion-input>
+    </ion-item>
+  </div>
+  <button *ngIf="generatedCode == null" color="dark" ion-button block icon-left (click)="confirmAlert()"><ion-icon name="card"></ion-icon>Finish payment</button>
+
+  <ion-card *ngIf="generatedCode" style="background-color: #3A5F8F;">
+    <ngx-qrcode [qrc-value]="generatedCode"></ngx-qrcode>
+  </ion-card>
+
+  <div *ngIf="generatedCode" style="color: white; text-align: center;">
+    <p>Purchased by: {{qrData}}</p> 
+    <p>Card: {{card.cardType}} - {{card.cardNumber}} <br>Expires: {{card.expiryMonth}} {{card.expiryYear}}</p>
+    <p>Please show this e-ticket to the attendants for entrance.</p>
+  </div>
+</ion-content>

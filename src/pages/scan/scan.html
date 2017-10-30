@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar transparent>
+    <ion-title>Tickets</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen class="card-background-page" padding>
+  <button ion-button full icon-left (click)="scanCode()" color="dark"><ion-icon name="qr-scanner"></ion-icon>Scan your ticket</button>
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      <p style="color: white;"><span style="color: green; font-weight: bold;">Verified:</span> {{ scannedCode }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="scannedCode == null">
+    <img src="assets/imgs/identity.jpg" />
+    <div class="card-title">Identity</div>
+    <div class="card-subtitle">Verify your identity</div>
+  </ion-card>
+</ion-content>

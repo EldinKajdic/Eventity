@@ -1,5 +1,8 @@
 {
   "name": "IdentityApp",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "7b5d2203",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
