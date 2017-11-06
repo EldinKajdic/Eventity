@@ -16,21 +16,21 @@ export class SocialPage {
   pictureCreated = false;
   createOwn = false;
   ownQuote: string;
-  ownName = null;
+  ownName: string;
   ownPosition: string;
 
   artistQuotes = [
     {
       imageUrl: 'assets/imgs/frankoceanquote.png',
       quote: 'When you’re happy, you enjoy the music but when you’re sad, you understand the lyrics.',
-      name: 'Franky Ocean',
+      name: 'Frank Ocean',
       position: 'Artist'
     },
     {
       imageUrl: 'assets/imgs/frankoceanquote2.png',
       quote: 'I could dream all night, I could drive all night, dreaming.',
       name: 'Frank Ocean',
-      position: ''
+      position: 'Artist'
     },
     {
       imageUrl: 'assets/imgs/kanyewestquote.png',
@@ -39,7 +39,7 @@ export class SocialPage {
       position: 'Artist'
     },
     {
-      imageUrl: 'https://i.pinimg.com/736x/11/8b/3b/118b3b2335fb6cd599ee3eb39d3ead58--the-weeknd.jpg',
+      imageUrl: 'assets/imgs/theweekndquote.jpg',
       quote: 'Don’t you fall in love, don’t make me make you fall in love. Nobody needs to fall in love.',
       name: 'The Weeknd',
       position: 'Artist'
@@ -51,25 +51,24 @@ export class SocialPage {
     this.createOwn = true;
     let options = {
       destinationType: this.camera.DestinationType.DATA_URL,
-      targetWidth: 500,
       targetHeight: 3000,
+      targetWidth: 500,
       quality: 100,
       allowEdit: true,
       correctOrientation: false,
-      saveToPhotoAlbum: true,
-      // mediaType: 0
+      saveToPhotoAlbum: true
     };
 
     this.camera.getPicture(options)
       .then((imageData) => {
         this.image = "data:image/jpeg;base64," + imageData;
 
-        let cameraImageSelector = document.getElementById('cameraId');
-        cameraImageSelector.setAttribute('src', this.image);
+        let cameraSourceSelector = document.getElementById('cameraId');
+        cameraSourceSelector.setAttribute('src', this.image);
 
       })
-      .catch(err => {
-        console.log(err);
+      .catch(error => {
+        console.log(error);
       })
 
   }

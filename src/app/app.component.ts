@@ -8,7 +8,16 @@ import { ScanPage } from '../pages/scan/scan';
 import { AboutPage } from '../pages/about/about';
 import { SocialPage } from '../pages/social/social';
 
-// MOST COMPONENTS INSPIRED FROM YANNBRAGA AT 'https://ioniccomponents.yannbraga.com/#/popup-fab'
+// SOURCES USED IN PROJECT
+// 'https://ionicframework.com/docs/'
+// 'https://www.card.io/'
+// 'https://ionicframework.com/docs/native/barcode-scanner/'
+// 'https://ionicframework.com/docs/native/camera/'
+// 'https://ionicframework.com/docs/ionicons/'
+// 'https://github.com/yannbf/ionic3-components'
+
+// TO USE EVENTITY, DO NPM INSTALL AND THEN INSTALL
+// $ npm install --save @ionic-native/camera
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +32,7 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // The menu list choices
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Social', component: SocialPage },

@@ -14,7 +14,7 @@
       <ion-slides autoplay="5000" loop="true">
         <ion-slide *ngFor="let concert of concerts">
           <ion-card>
-            <div class="the-header">
+            <div class="slider-header">
               <div class="header-text">
                 <h1>{{concert.artistName}}</h1>
                 <p>{{concert.tourName}}</p>
@@ -26,7 +26,7 @@
                 <ion-icon name="musical-notes"></ion-icon>
               </button>
             </div>
-            <div class="the-content" padding>
+            <div class="slider-content" padding>
               <h2>{{concert.extra}}</h2>
               <div padding>
                   <small>

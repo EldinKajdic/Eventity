@@ -3,14 +3,14 @@ import { NavController, AlertController } from 'ionic-angular';
 import { CardIO } from '@ionic-native/card-io';
 
 @Component({
-  selector:'page-concert-card',
+  selector:'page-artist-display',
   templateUrl: 'generate.html'
 })
 export class GeneratePage {
   qrData = null;
   generatedCode = null;
 
-  // Hardcoded for showing example
+  // Hardcoded for showing example, will be provided from database in the future
   eventName = "The Weeknd - Starboy Tour 2018";
   eventLocation = "Globen - Stockholm, Sweden";
   eventDate = "2017-11-24";
@@ -23,6 +23,7 @@ export class GeneratePage {
     console.log('Ticket payment initialized');
   }
 
+  // Saves card information for future uses / to show on GeneratePage
   card = {
     cardType: '',
     cardNumber: '',
@@ -33,6 +34,7 @@ export class GeneratePage {
     postalCode: ''
   };
 
+  // Confirm alert message when finishing payment process
   confirmAlert() {
     if (this.qrData != null) {
       let confirm = this.alertCtrl.create({
@@ -59,10 +61,13 @@ export class GeneratePage {
 
   }
 
+ // Generates what the QR-code will provide
   generateCode() {
     this.generatedCode = this.qrData + ' ' + 'Event: ' + this.eventName + ' at ' + this.eventLocation + ' ' + this.eventDate;
   }
 
+  // Used for scanning credit cards
+  // ONLY works as an app on the phone
   scanCard() {
     this.cardIO.canScan()
       .then(
@@ -78,7 +83,7 @@ export class GeneratePage {
             requirePostalCode: false
           };
           this.cardIO.scan(options).then(response => {
-            console.log('Scan complete');
+            console.log('Card scan complete');
 
             let { cardType, cardNumber, redactedCardNumber,
                     expiryMonth, expiryYear, cvv, postalCode } = response;

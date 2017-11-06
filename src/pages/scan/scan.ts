@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @Component({
-  selector:'page-concert-card',
+  selector:'page-artist-display',
   templateUrl: 'scan.html'
 })
 export class ScanPage {

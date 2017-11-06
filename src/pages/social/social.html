@@ -27,7 +27,7 @@
     <button ion-button full icon-left (click)="useCamera()" color="dark"><ion-icon name="camera"></ion-icon>Change picture</button>
   </ion-list>
   <div *ngIf="pictureCreated == true">
-      <figure class="snip1574">
+      <figure class="quotePage">
         <img id='cameraId'>
         <figcaption>
           <blockquote>
@@ -39,7 +39,7 @@
       </figure>
   </div>
   <div *ngFor="let quote of artistQuotes">
-    <figure class="snip1574">
+    <figure class="quotePage">
       <img [src]="quote.imageUrl" alt="profile-sample2" />
       <figcaption>
         <blockquote>

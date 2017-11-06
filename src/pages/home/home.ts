@@ -3,7 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import {GeneratePage} from '../generate/generate';
 
 @Component({
-  selector: 'page-concert-card',
+  selector: 'page-artist-display',
   templateUrl: 'home.html',
 })
 
@@ -128,7 +128,7 @@ generatePage = GeneratePage;
       artistName: 'Khalid',
       artistImage: 'assets/imgs/khalido.png',
       color: '#607D8B',
-      extra: 'Young, Wild & Free',
+      extra: 'Young, Dumb & Broke',
       extraText: 'American Teen is the debut studio album by American singer Khalid. The album was supported by the singles "Location", and "Young Dumb & Broke". The lead single from the album, called "Location" was released on August 23, 2016. The song peaked at 16 on the Billboard Hot 100.',
       location: 'Annexet, Stockholm',
       date: 'June 18th 2018',
